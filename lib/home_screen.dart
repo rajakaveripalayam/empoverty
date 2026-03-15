@@ -49,11 +49,11 @@ class HomeScreen  extends  StatelessWidget  {
   mainAxisAlignment: .center,
   children: [
   ButtonComponent(title: "Join as Service Provider", onPress: () async {
-    // context.router.push(ServiceProviderRoute());
-    final databaseManager = DatabaseManager();
-    await databaseManager.createAppDb();
-    List<String> skills = ["Painting", "Drawing", "Sculpture"];
-    databaseManager.addNewProvider(model: ServiceProviderModel( name: "sukumar", address: "16 rue moliere", skills: skills, lat: 109, long: 1078, phonenumber: 09944047907));
+    context.router.push(ServiceProviderRoute());
+    // final databaseManager = DatabaseManager();
+    // await databaseManager.createAppDb();
+    // List<String> skills = ["Painting", "Drawing", "Sculpture"];
+    // databaseManager.addNewProvider(model: ServiceProviderModel( name: "sukumar", address: "16 rue moliere", skills: skills, lat: 109, long: 1078, phonenumber: 09944047907));
 
   },),
   ButtonComponent(title: "Join as Customer", onPress: () {
