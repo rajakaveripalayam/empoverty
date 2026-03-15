@@ -52,13 +52,13 @@ final _entities = <obx_int.ModelEntity>[
       obx_int.ModelProperty(
         id: const obx_int.IdUid(5, 7988602400938286736),
         name: 'lat',
-        type: 6,
+        type: 8,
         flags: 0,
       ),
       obx_int.ModelProperty(
         id: const obx_int.IdUid(6, 1716980722085854160),
         name: 'long',
-        type: 6,
+        type: 8,
         flags: 0,
       ),
       obx_int.ModelProperty(
@@ -149,8 +149,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
         fbb.addOffset(1, nameOffset);
         fbb.addOffset(2, addressOffset);
         fbb.addOffset(3, skillsOffset);
-        fbb.addInt64(4, object.lat);
-        fbb.addInt64(5, object.long);
+        fbb.addFloat64(4, object.lat);
+        fbb.addFloat64(5, object.long);
         fbb.addInt64(6, object.phonenumber);
         fbb.finish(fbb.endTable());
         return object.id;
@@ -168,13 +168,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fb.StringReader(asciiOptimization: true),
           lazy: false,
         ).vTableGet(buffer, rootOffset, 10, []);
-        final latParam = const fb.Int64Reader().vTableGet(
+        final latParam = const fb.Float64Reader().vTableGet(
           buffer,
           rootOffset,
           12,
           0,
         );
-        final longParam = const fb.Int64Reader().vTableGet(
+        final longParam = const fb.Float64Reader().vTableGet(
           buffer,
           rootOffset,
           14,
@@ -226,12 +226,12 @@ class ServiceProviderModel_ {
   );
 
   /// See [ServiceProviderModel.lat].
-  static final lat = obx.QueryIntegerProperty<ServiceProviderModel>(
+  static final lat = obx.QueryDoubleProperty<ServiceProviderModel>(
     _entities[0].properties[4],
   );
 
   /// See [ServiceProviderModel.long].
-  static final long = obx.QueryIntegerProperty<ServiceProviderModel>(
+  static final long = obx.QueryDoubleProperty<ServiceProviderModel>(
     _entities[0].properties[5],
   );
 

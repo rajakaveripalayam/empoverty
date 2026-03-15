@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:em_poverty/Helpers/current_location_finder.dart';
 import 'package:em_poverty/uicomponent/map_component.dart';
+import 'package:em_poverty/uicomponent/provider_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -20,9 +21,10 @@ class CustomerScreen extends  StatelessWidget {
         child: Column(
           mainAxisAlignment: .center,
           children: [
-            Expanded(child:
-        // Text("Welcome Customer"),
-        FutureBuilder(
+            Expanded(
+              flex: 3,
+              child:
+         FutureBuilder(
         future: _currentLocationFinder.getCurrentLocation(),
         builder: (BuildContext context, AsyncSnapshot<Position> snapshot) {
         if (snapshot.connectionState == .waiting) {
@@ -52,6 +54,14 @@ class CustomerScreen extends  StatelessWidget {
         }
         ),
         ),
+            Expanded(
+              flex: 1,
+                child:
+                ProviderDetailsView(
+                    name: "Sukumar",
+                    address: "16 rue Moliere 92120",
+                    phoneNumber: "9944047907", skills: ["Painting", "Plumber"])
+            )
           ]
       ),
       )
