@@ -34,7 +34,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
           mainAxisAlignment: .center,
           children: [
             Expanded(
-              flex: 3,
+              flex: 4,
               child:
          FutureBuilder<List<dynamic>>(
            // Future.wait takes a list of futures and runs them in parallel
@@ -79,20 +79,24 @@ print("all Providers $providers");
               _selectedProvider = providers.where((provider) => provider.lat == location.latitude && provider.long == location.longitude).first;
             });
           },);
-        // }
-
-        return const Text("Initializing...");
-        }
+             }
         ),
         ),
             Expanded(
-              flex: 1,
+              flex: 2,
                 child:
                 _selectedProvider == null
-                    ? const Text("Fetching Location...") // Show this if NULL
-                    : ProviderDetailsView(               // Show this if NOT NULL
-                  name: _selectedProvider!.name,
-                   address: "_selectedProvider!.displayName",
+                    ?  _currentLocation != null
+                           ? ProviderDetailsView(
+                             title: "User Current Location",
+                              lat: _currentLocation!.latitude,
+                               long: _currentLocation!.longitude,)
+                            : Text("Details Not available")
+                    : ProviderDetailsView(
+                    title: "Provider Details",
+                    name: _selectedProvider!.name,
+                    lat: _selectedProvider!.lat,
+                    long: _selectedProvider!.long,
                   phoneNumber: _selectedProvider!.phonenumber,
                   skills: _selectedProvider!.skills,
                 ),

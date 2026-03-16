@@ -71,14 +71,14 @@ class _PickLocationState extends State<PickLocation> {
                     }
                 ),
               ),
-              Expanded(
-                  flex: 1,
-                  child:
-                  ProviderDetailsView(
-                      name: "Sukumar",
-                      address: "16 rue Moliere 92120",
-                      phoneNumber: "9944047907", skills: ["Painting", "Plumber"])
-              ),
+              // Expanded(
+              //     flex: 1,
+              //     child:
+              //     // ProviderDetailsView(
+              //     //     name: "Sukumar",
+              //     //     address: "16 rue Moliere 92120",
+              //     //     phoneNumber: "9944047907", skills: ["Painting", "Plumber"])
+              // ),
               Expanded(
                   flex: 1,
                   child:

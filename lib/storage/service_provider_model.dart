@@ -19,26 +19,7 @@ class ServiceProviderModel {
     required this.long,
     required this.phonenumber,
   });
-// Inside your ServiceProviderModel class
-  Future<String> get displayName async {
-    // 1. Create the request object using the model's lat/long
-    final request = ReverseRequest(
-      lat: lat,
-      lon: long,
-      addressDetails: true,
-    );
 
-    // 2. Await the response from Nominatim
-    try {
-      final response = await NominatimFlutter.instance.reverse(
-        reverseRequest: request,
-        language: 'en-US',
-      );
-      return response.displayName ?? "Unknown Address";
-    } catch (e) {
-      return "Error fetching address";
-    }
-  }
   @override
   String toString() {
     return 'ServiceProviderModel{id: $id, name: $name, skills: $skills, lat: $lat, long: $long, phonenumber: $phonenumber}';
