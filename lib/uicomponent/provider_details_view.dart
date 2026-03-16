@@ -1,6 +1,7 @@
 import 'package:em_poverty/uicomponent/title_and_details_display_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProviderDetailsView extends StatelessWidget {
   final String name;
@@ -25,8 +26,18 @@ class ProviderDetailsView extends StatelessWidget {
     mainAxisAlignment: .center,
     children: [
     Text("Phone Number: ", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-    OutlinedButton(onPressed: () {
+    OutlinedButton(onPressed: () async {
+    // Use the 'tel' scheme followed by the number
+    final Uri launchUri = Uri(
+    scheme: 'tel',
+    path: phoneNumber,
+    );
 
+    if (await canLaunchUrl(launchUri)) {
+    await launchUrl(launchUri);
+    } else {
+    print('Could not launch $launchUri');
+    }
     }, child: Text(phoneNumber, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15)),
     ),
      ],
