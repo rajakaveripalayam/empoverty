@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:2951548079412544867",
-      "lastPropertyId": "7:2879477077982844045",
+      "lastPropertyId": "8:7709202079069933154",
       "name": "ServiceProviderModel",
       "properties": [
         {
@@ -17,11 +17,6 @@
         {
           "id": "2:3863564126040356639",
           "name": "name",
-          "type": 9
-        },
-        {
-          "id": "3:1270541120429749471",
-          "name": "address",
           "type": 9
         },
         {
@@ -43,6 +38,11 @@
           "id": "7:2879477077982844045",
           "name": "phonenumber",
           "type": 6
+        },
+        {
+          "id": "8:7709202079069933154",
+          "name": "address",
+          "type": 9
         }
       ],
       "relations": []
@@ -56,7 +56,9 @@
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    1270541120429749471
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

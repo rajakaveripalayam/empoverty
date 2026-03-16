@@ -15,17 +15,24 @@ class MultipleChoiceView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 8.0,
-      children: allSkills.map((skill) {
-        return FilterChip(
-          label: Text(skill),
-          selected: selectedSkills.contains(skill),
-          onSelected: (bool selected) {
-            onToggle(skill, selected); // Just pass the event up
-          },
-        );
-      }).toList(),
+    return Column(
+      mainAxisAlignment: .start,
+      children: [
+        Text("Select Your Skills"),
+    Wrap(
+    spacing: 8.0,
+    children: allSkills.map((skill) {
+    return FilterChip(
+    label: Text(skill),
+    selected: selectedSkills.contains(skill),
+    onSelected: (bool selected) {
+    onToggle(skill, selected); // Just pass the event up
+    },
     );
+    }).toList(),
+    )
+      ],
+    );
+
   }
 }
