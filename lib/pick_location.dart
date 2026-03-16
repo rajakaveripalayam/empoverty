@@ -64,7 +64,7 @@ class _PickLocationState extends State<PickLocation> {
                             speed: 0,
                             speedAccuracy: 0.0);
 
-                        return MapComponent(userPosition: userLocation, selectedLocation: selectedLocation, onLocationSelected: onLocationSelected,);
+                        return MapComponent(userPosition: userLocation, selectedLocation: selectedLocation, onLocationSelected: onLocationSelected, currentLocationSelection: (LatLng p1) {  }, providerSelection: (LatLng p1) {  },);
                       }
 
                       return const Text("Initializing...");

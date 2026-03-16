@@ -26,10 +26,10 @@ class DatabaseManager {
        print("Result");
        print(_box.getAll().last);
    }
-   Stream<List<ServiceProviderModel>> listenToPersonStore() async*{
-     final queryBuilder = _box.query();
-     final Stream<Query<ServiceProviderModel>> queryToWatch = queryBuilder.watch(triggerImmediately: true);
-     Stream<List<ServiceProviderModel>> rowsInStream = queryToWatch.map((query) => query.find());
-     yield* rowsInStream;
+   Future<List<ServiceProviderModel>> getAllProviders() async {
+     // final queryBuilder = _box.query();
+     // final Stream<Query<ServiceProviderModel>> queryToWatch = queryBuilder.build();
+     // Stream<List<ServiceProviderModel>> rowsInStream = queryToWatch.map((query) => query.find());
+     return _box.getAll();
    }
 }

@@ -99,7 +99,7 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                         ServiceProviderModel _model = ServiceProviderModel(
                             name: _nameFieldController.text,
                             skills: _mySelectedSkills,
-                            lat: _selectedLocation?.longitude ?? 1101,
+                            lat: _selectedLocation?.latitude ?? 1101,
                             long: _selectedLocation?.longitude ?? 1098,
                             phonenumber: _phoneNumberFieldController.text);
                         databaseManager.addNewProvider(model: _model);
