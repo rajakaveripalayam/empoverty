@@ -1,8 +1,11 @@
 import 'package:em_poverty/route/app_router.dart';
+import 'package:em_poverty/storage/database_manager.dart';
 import 'package:flutter/material.dart';
 // import 'package:em_poverty/test/uicomponent/button_component.dart';
 
-void main() {
+Future<void> main() async {
+  final databaseManager = DatabaseManager();
+   await databaseManager.createAppDb();
   runApp(MyApp());
 }
 

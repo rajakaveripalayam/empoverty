@@ -7,16 +7,14 @@ class ServiceProviderModel {
   @Id()
   int id = 0;
   String name;
-  String address;
-  List<String> skills;
+   List<String> skills;
   double lat;
   double long;
-  int phonenumber;
+  String phonenumber;
 
   ServiceProviderModel({
     required this.name,
-    required this.address,
-    required this.skills,
+     required this.skills,
     required this.lat,
     required this.long,
     required this.phonenumber,
@@ -43,6 +41,6 @@ class ServiceProviderModel {
   }
   @override
   String toString() {
-    return 'ServiceProviderModel{id: $id, name: $name, address: $address, skills: $skills, lat: $lat, long: $long, phonenumber: $phonenumber}';
+    return 'ServiceProviderModel{id: $id, name: $name, skills: $skills, lat: $lat, long: $long, phonenumber: $phonenumber}';
   }
 }

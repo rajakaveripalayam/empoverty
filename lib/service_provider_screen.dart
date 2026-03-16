@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:em_poverty/storage/database_manager.dart';
+import 'package:em_poverty/storage/service_provider_model.dart';
 import 'package:em_poverty/uicomponent/alert_view.dart';
 import 'package:em_poverty/uicomponent/multiple_choice_view.dart';
 import 'package:em_poverty/uicomponent/textfield_view.dart';
@@ -20,7 +22,7 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
     "Ac Worker"];
   final TextEditingController _nameFieldController = TextEditingController();
   final TextEditingController _phoneNumberFieldController = TextEditingController();
-
+  final databaseManager = DatabaseManager();
 
   // THE SINGLE SOURCE OF TRUTH
   List<String> _mySelectedSkills = [];
@@ -70,9 +72,13 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                print("Saving: $_mySelectedSkills");
-                print(_nameFieldController.text);
-                print(_phoneNumberFieldController.text);
+                 ServiceProviderModel _model =   ServiceProviderModel(
+                    name: _nameFieldController.text,
+                    skills: _mySelectedSkills,
+                    lat: 101,
+                    long: 10897,
+                    phonenumber: _phoneNumberFieldController.text);
+                 databaseManager.addNewProvider(model: _model);
                 showDialog(
                   context: context,
                   builder: (context) => AlertView(

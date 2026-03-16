@@ -58,12 +58,6 @@ final _entities = <obx_int.ModelEntity>[
       obx_int.ModelProperty(
         id: const obx_int.IdUid(7, 2879477077982844045),
         name: 'phonenumber',
-        type: 6,
-        flags: 0,
-      ),
-      obx_int.ModelProperty(
-        id: const obx_int.IdUid(8, 7709202079069933154),
-        name: 'address',
         type: 9,
         flags: 0,
       ),
@@ -122,7 +116,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
     lastSequenceId: const obx_int.IdUid(0, 0),
     retiredEntityUids: const [],
     retiredIndexUids: const [],
-    retiredPropertyUids: const [1270541120429749471],
+    retiredPropertyUids: const [1270541120429749471, 7709202079069933154],
     retiredRelationUids: const [],
     modelVersion: 5,
     modelVersionParserMinimum: 5,
@@ -143,15 +137,14 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final skillsOffset = fbb.writeList(
           object.skills.map(fbb.writeString).toList(growable: false),
         );
-        final addressOffset = fbb.writeString(object.address);
+        final phonenumberOffset = fbb.writeString(object.phonenumber);
         fbb.startTable(9);
         fbb.addInt64(0, object.id);
         fbb.addOffset(1, nameOffset);
         fbb.addOffset(3, skillsOffset);
         fbb.addFloat64(4, object.lat);
         fbb.addFloat64(5, object.long);
-        fbb.addInt64(6, object.phonenumber);
-        fbb.addOffset(7, addressOffset);
+        fbb.addOffset(6, phonenumberOffset);
         fbb.finish(fbb.endTable());
         return object.id;
       },
@@ -161,9 +154,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
         final nameParam = const fb.StringReader(
           asciiOptimization: true,
         ).vTableGet(buffer, rootOffset, 6, '');
-        final addressParam = const fb.StringReader(
-          asciiOptimization: true,
-        ).vTableGet(buffer, rootOffset, 18, '');
         final skillsParam = const fb.ListReader<String>(
           fb.StringReader(asciiOptimization: true),
           lazy: false,
@@ -180,15 +170,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
           14,
           0,
         );
-        final phonenumberParam = const fb.Int64Reader().vTableGet(
-          buffer,
-          rootOffset,
-          16,
-          0,
-        );
+        final phonenumberParam = const fb.StringReader(
+          asciiOptimization: true,
+        ).vTableGet(buffer, rootOffset, 16, '');
         final object = ServiceProviderModel(
           name: nameParam,
-          address: addressParam,
           skills: skillsParam,
           lat: latParam,
           long: longParam,
@@ -231,12 +217,7 @@ class ServiceProviderModel_ {
   );
 
   /// See [ServiceProviderModel.phonenumber].
-  static final phonenumber = obx.QueryIntegerProperty<ServiceProviderModel>(
+  static final phonenumber = obx.QueryStringProperty<ServiceProviderModel>(
     _entities[0].properties[5],
-  );
-
-  /// See [ServiceProviderModel.address].
-  static final address = obx.QueryStringProperty<ServiceProviderModel>(
-    _entities[0].properties[6],
   );
 }
