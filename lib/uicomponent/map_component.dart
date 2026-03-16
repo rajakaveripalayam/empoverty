@@ -19,6 +19,20 @@ class MapComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final LatLng currentLatLng = LatLng(userPosition.latitude, userPosition.longitude);
     List<Marker> markers = [];
+    if (userPosition != null) {
+      markers.add(
+        Marker(
+          point: LatLng(userPosition.latitude, userPosition.longitude),
+          width: 80,
+          height: 80,
+          child: const Icon(
+            Icons.location_pin,
+            size: 40,
+            color: Colors.red,
+          ),
+        ),
+      );
+    }
 
     if (selectedLocation != null) {
       markers.add(
