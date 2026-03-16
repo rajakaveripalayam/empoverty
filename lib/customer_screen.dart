@@ -4,6 +4,7 @@ import 'package:em_poverty/uicomponent/map_component.dart';
 import 'package:em_poverty/uicomponent/provider_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 
 @RoutePage()
 class CustomerScreen extends  StatelessWidget {
@@ -47,7 +48,7 @@ class CustomerScreen extends  StatelessWidget {
         speed: 0,
         speedAccuracy: 0.0);
 
-        return MapComponent(userPosition: userLocation);
+        return MapComponent(userPosition: userLocation, selectedLocation: null, onLocationSelected: (LatLng p1) {  },);
         }
 
         return const Text("Initializing...");

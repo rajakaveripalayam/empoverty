@@ -20,10 +20,14 @@ class AppRouter extends RootStackRouter {
         path: "/homescreen",
         initial: true
     ),
-
+    AutoRoute(
+        page: PickLocation.page,
+        path: "/pickLocation"
+    ),
     AutoRoute(
         page: SplashRoute.page,
         path: "/splashscreen"
     ),
+
   ];
 }
