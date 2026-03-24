@@ -20,7 +20,7 @@ class _PickLocationState extends State<PickLocation> {
   LatLng? selectedLocation;
   final CurrentLocationFinder _currentLocationFinder = CurrentLocationFinder();
 
-  void onLocationSelected(LatLng latLng) {
+  void newLocationSelectedByProvider(LatLng latLng) {
     setState(() {
       selectedLocation = latLng;
     });
@@ -64,7 +64,7 @@ class _PickLocationState extends State<PickLocation> {
                             speed: 0,
                             speedAccuracy: 0.0);
 
-                        return MapComponent(userPosition: userLocation, selectedLocation: selectedLocation, onLocationSelected: onLocationSelected, currentLocationSelection: (LatLng p1) {  }, providerSelection: (LatLng p1) {  },);
+                        return MapComponent(userPosition: userLocation, selectedLocation: selectedLocation, newLocationSelectedByProvider: newLocationSelectedByProvider, currentLocationSelection: (LatLng p1) {  }, providerSelection: (LatLng p1) {  },);
                       }
 
                       return const Text("Initializing...");

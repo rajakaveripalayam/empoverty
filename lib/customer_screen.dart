@@ -59,14 +59,14 @@ class _CustomerScreenState extends State<CustomerScreen> {
         final Position userPos = snapshot.data![0] as Position;
         final List<ServiceProviderModel> providers = snapshot.data![1] as List<ServiceProviderModel>;
 print("all Providers $providers");
-        final firstProviders = providers.first;
+        // final firstProviders = providers;
         Position userLocation = userPos ;
         _currentLocation = LatLng(userPos.latitude, userPos.longitude);
 
         return MapComponent(
           userPosition: userLocation,
-          selectedLocation: LatLng(firstProviders.lat, firstProviders.long),
-          onLocationSelected: (LatLng p1) {  },
+           allProvidersLatLong: providers,
+           newLocationSelectedByProvider: (LatLng p1) {  },
            currentLocationSelection: (LatLng location) {
                 setState(() {
                   _selectedProvider = null;
