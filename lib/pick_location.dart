@@ -71,26 +71,18 @@ class _PickLocationState extends State<PickLocation> {
                     }
                 ),
               ),
-              // Expanded(
-              //     flex: 1,
-              //     child:
-              //     // ProviderDetailsView(
-              //     //     name: "Sukumar",
-              //     //     address: "16 rue Moliere 92120",
-              //     //     phoneNumber: "9944047907", skills: ["Painting", "Plumber"])
-              // ),
-              Expanded(
-                  flex: 1,
-                  child:
-                  ButtonComponent(title: "Proceed", onPress: (){
-                    if (selectedLocation != null) {
-                      final LatLng selectedValue = selectedLocation!;
 
-                      // This closes the screen and sends 'selectedValue' to whoever called it
-                      context.router.maybePop(selectedValue);
-                    }
-                  })
-              )
+              SizedBox(
+                width: 200,
+                height: 50,
+                child:  ButtonComponent(title: "Proceed", onPress: (){
+                  if (selectedLocation != null) {
+                    final LatLng selectedValue = selectedLocation!;
+
+                     context.router.maybePop(selectedValue);
+                  }
+                }),
+              ),
             ]
         ),
       )

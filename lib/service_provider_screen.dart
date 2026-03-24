@@ -35,6 +35,13 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
 
     List<String> _mySelectedSkills = [];
 
+  bool get _isFormValid {
+    return _nameFieldController.text.isNotEmpty &&
+        _phoneNumberFieldController.text.isNotEmpty &&
+        _selectedLocation != null &&
+        _mySelectedSkills.isNotEmpty;
+  }
+
     void _handleSkillToggle(String skill, bool isSelected) {
       setState(() {
         if (isSelected) {
@@ -76,11 +83,6 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                   children: [
                     ElevatedButton(
                       onPressed: () async {
-                        // MapComponent(
-                        //   selectedLocation: selectedLocation,
-                        //   onLocationSelected: onLocationSelected,
-                        //   userPosition: Pos,
-                        // );
                         final result = await context.router.push(PickLocation());;
 
                         print("Value received $result");
@@ -95,7 +97,8 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                       child: const Text("Pick Location"),
                     ),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: _isFormValid
+                          ? () {
                         ServiceProviderModel _model = ServiceProviderModel(
                             name: _nameFieldController.text,
                             skills: _mySelectedSkills,
@@ -109,10 +112,24 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                               AlertView(
                                 title: "Success",
                                 message: "Your Details stored successfully",
-                                okAction: () {
+                                positiveButtonAction: () {
                                   context.router.pop();
                                 },
-                                cancelAction: () {},
+                                negativeButtonAction: () {},
+                                positiveButtonTitle: 'Go To Home',
+                                negativeButtonTitle: 'Stay on same screen',
+                              ),
+                        );
+                      }
+                      : () {
+                        showDialog(
+                          context: context,
+                          builder: (context) =>
+                              AlertView(
+                                title: "Error",
+                                message: "Please Enter All Values before save",
+                                negativeButtonAction: () {
+                                 }, negativeButtonTitle: 'Close',
                               ),
                         );
                       },

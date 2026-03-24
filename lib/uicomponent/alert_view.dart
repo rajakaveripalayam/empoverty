@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 class AlertView extends StatelessWidget {
   final String title;
   final String message;
-  final VoidCallback okAction;
-  final VoidCallback cancelAction;
+  final String? positiveButtonTitle;
+  final String? negativeButtonTitle;
 
-  const AlertView({super.key, required this.title, required this.message, required this.okAction, required this.cancelAction});
+  final VoidCallback? positiveButtonAction;
+  final VoidCallback? negativeButtonAction;
+
+  const AlertView({super.key, required this.title, required this.message, this.positiveButtonAction,  this.negativeButtonAction, this.positiveButtonTitle, this.negativeButtonTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +20,21 @@ class AlertView extends StatelessWidget {
       title:  Text(title),
       content:  Text(message),
       actions: [
-        // The "Cancel" button
+        if (negativeButtonAction != null && negativeButtonTitle != null)
         TextButton(
           onPressed: () {
         context.router.pop();
-          cancelAction();
+        negativeButtonAction!();
           }, // Closes the alert
-          child:  Text("Cancel"),
+          child:  Text(negativeButtonTitle!),
         ),
-        // The "Confirm" button
-        TextButton(
+        if (positiveButtonAction != null && positiveButtonTitle != null)
+          TextButton(
           onPressed: () {
             context.router.pop();
-            okAction();
+            positiveButtonAction!();
           },
-          child:  Text("Ok"),
+          child:  Text(positiveButtonTitle!),
         ),
       ],
     );
