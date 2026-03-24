@@ -63,8 +63,8 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                 ),
                 DisplayTextFieldWidget(
                   inputController: _nameFieldController,
-                  placeHolder: "Please Enter Goal Name",
-                  title: "Enter Goal Name",
+                  placeHolder: "Please Enter Shop Name",
+                  title: "Enter Shop Name",
                 ),
                 DisplayTextFieldWidget(
                   inputController: _phoneNumberFieldController,
