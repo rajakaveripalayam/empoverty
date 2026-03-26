@@ -15,50 +15,21 @@ import 'package:em_poverty/home_screen.dart' as _i2;
 import 'package:em_poverty/pick_location.dart' as _i3;
 import 'package:em_poverty/service_provider_screen.dart' as _i4;
 import 'package:em_poverty/splash_screen.dart' as _i5;
-import 'package:flutter/material.dart' as _i7;
 
 /// generated route for
 /// [_i1.CustomerScreen]
-class CustomerRoute extends _i6.PageRouteInfo<CustomerRouteArgs> {
-  CustomerRoute({_i7.Key? key, List<_i6.PageRouteInfo>? children})
-    : super(
-        CustomerRoute.name,
-        args: CustomerRouteArgs(key: key),
-        initialChildren: children,
-      );
+class CustomerRoute extends _i6.PageRouteInfo<void> {
+  const CustomerRoute({List<_i6.PageRouteInfo>? children})
+    : super(CustomerRoute.name, initialChildren: children);
 
   static const String name = 'CustomerRoute';
 
   static _i6.PageInfo page = _i6.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<CustomerRouteArgs>(
-        orElse: () => const CustomerRouteArgs(),
-      );
-      return _i1.CustomerScreen(key: args.key);
+      return const _i1.CustomerScreen();
     },
   );
-}
-
-class CustomerRouteArgs {
-  const CustomerRouteArgs({this.key});
-
-  final _i7.Key? key;
-
-  @override
-  String toString() {
-    return 'CustomerRouteArgs{key: $key}';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! CustomerRouteArgs) return false;
-    return key == other.key;
-  }
-
-  @override
-  int get hashCode => key.hashCode;
 }
 
 /// generated route for

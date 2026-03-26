@@ -48,7 +48,8 @@ class HomeScreen  extends  StatelessWidget  {
   // wireframe for each widget.
   mainAxisAlignment: .center,
   children: [
-  ButtonComponent(title: "Join as Service Provider", onPress: () async {
+    Image.asset("assets/images/poverty.png"),
+    ButtonComponent(title: "Join as Service Provider", onPress: () async {
     context.router.push(ServiceProviderRoute());
     // final databaseManager = DatabaseManager();
     // await databaseManager.createAppDb();
